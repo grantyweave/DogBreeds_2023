@@ -27,5 +27,11 @@ namespace DogBreed_Backend_2023.Controllers
       List<DogBreed> dogBreeds = apiTask.Result;
       return (dogBreeds);
     }
+
+    [HttpGet("{id}")]
+    public DogBreed GetById(int id)
+    {
+      return repo.FindById(id);
+    }
   }
 }

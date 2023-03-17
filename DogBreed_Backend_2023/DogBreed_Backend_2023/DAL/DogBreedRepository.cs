@@ -17,5 +17,29 @@ namespace DogBreed_Backend_2023.DAL
       return _dbContext.DogBreeds.AsNoTracking().FirstOrDefault(x => x.Id == id);
     }
 
+    public FavoriteBreed AddFavoriteBreed(FavoriteBreed newFavoriteBreed)
+    {
+      _dbContext.FavoriteBreeds.Add(newFavoriteBreed);
+      _dbContext.SaveChanges();
+      return newFavoriteBreed;
+    }
+
+    public List<DogBreed> GetAllUserFavoriteBreeds(int userId)
+    {
+      var usersBreeds= _dbContext.FavoriteBreeds.Where(x => x.UserId == userId).Select(x => x.BreedId).ToList();
+      return _dbContext.DogBreeds.Where(x => usersBreeds.Contains(x.Id)).ToList();
+
+    }
+
+    public void DeleteFavoriteBreed(int userId, int breedId)
+    {
+      var favorite = _dbContext.FavoriteBreeds.FirstOrDefault(x => x.UserId == userId && x.BreedId == breedId);
+      if (favorite != null)
+      {
+        _dbContext.FavoriteBreeds.Remove(favorite);
+        _dbContext.SaveChanges();
+      }
+    }
+
   }
 }

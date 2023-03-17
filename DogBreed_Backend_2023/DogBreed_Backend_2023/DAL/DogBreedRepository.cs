@@ -6,12 +6,12 @@ namespace DogBreed_Backend_2023.DAL
   public class DogBreedRepository
   {
     private BreedContext _dbContext = new BreedContext();
-    public List<DogBreedApi> GetAllBreeds()
+    public List<DogBreed> GetAllBreeds()
     {
       return _dbContext.DogBreeds.ToList();
     }
 
-    public DogBreedApi FindById(int id)
+    public DogBreed FindById(int id)
     {
       // AsNoTracking will not lock the ID allowing updating it after finding it
       return _dbContext.DogBreeds.AsNoTracking().FirstOrDefault(x => x.Id == id);

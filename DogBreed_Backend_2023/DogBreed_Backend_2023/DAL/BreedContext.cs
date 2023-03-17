@@ -19,7 +19,7 @@ namespace DogBreed_Backend_2023.DAL
     }
 
     // Create the table based off the model
-    public DbSet<DogBreedApi> DogBreeds { get; set; }
+    public DbSet<DogBreed> DogBreeds { get; set; }
 
     private static IConfigurationRoot _configuration;
 

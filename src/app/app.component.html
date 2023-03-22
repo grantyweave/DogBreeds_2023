@@ -1,9 +1,3 @@
-<!-- <div>
-    <li *ngFor="let breed of dogBreeds">        
-           <span  style="font-size: 20px;text-align: center;">-{{breed.breed}} __{{breed.origin}} </span>      
-    </li>
-  </div> -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,13 +31,6 @@
   <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">All Breeds</a>
   <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Events and Activities</a>
   <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-    <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button" title="Notifications">Dropdown <i class="fa fa-caret-down"></i></button>     
-    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-      <a href="#" class="w3-bar-item w3-button">Link</a>
-      <a href="#" class="w3-bar-item w3-button">Link</a>
-      <a href="#" class="w3-bar-item w3-button">Link</a>
-    </div>
   </div>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>
  </div>
@@ -56,13 +43,11 @@
     <a href="#contact" class="w3-bar-item w3-button">Contact</a>
     <a href="#" class="w3-bar-item w3-button">Search</a>
   </div>
-</div>
 
 <!-- Image Header -->
 <div class="w3-display-container w3-animate-opacity">
   <img src="https://thebark.com/sites/default/files/styles/full/public/content/blog/full/purebred-dogs.jpg.653x0_q80_crop-smart.jpg?itok=h-U9rqOw" alt="boat" style="width:75%;min-height:350px;max-height:600px;">
   <div class="w3-container w3-display-bottomleft w3-margin-bottom">  
-    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-xlarge w3-theme w3-hover-teal" title="Go To W3.CSS">LEARN W3.CSS</button>
   </div>
 </div>
 
@@ -74,9 +59,17 @@
       <h4>All Dog Breeds by Alphabetical Order</h4>
       <h5>Click on the link to learn more about each breed! <i class="fa fa-smile-o"></i></h5>
     </header>
+    <!-- <app-breed-list></app-breed-list> -->
     <div class="w3-container">
       <li *ngFor="let breed of dogBreeds">        
-        <span  style="font-size: 20px;text-align: center;">-{{breed.breed}} __{{breed.origin}} </span>      
+        <span  style="font-size: 20px;text-align: center;">
+          <img src={{breed.img}}>
+          <br>
+          Breed: {{breed.breed}}
+          <br>
+          Country of Origin: {{breed.origin}}
+        <br>
+        <a href={{breed.url}}>Learn more</a></span>      
       </li>
          </div>
     <footer class="w3-container w3-teal">
@@ -84,6 +77,10 @@
     </footer>
   </div>
 </div>
+
+<a routerLink='breed-list' routerLinkActive="active">breeds
+<!-- <button onclick=>View All Breeds</button> -->
+</a>
 
 <!-- Team Container -->
 <div class="w3-container w3-padding-64 w3-center" id="team">
@@ -160,68 +157,6 @@
 <div class="w3-container" style="position:relative">
   <a onclick="w3_open()" class="w3-button w3-xlarge w3-circle w3-teal"
   style="position:absolute;top:-28px;right:24px">+</a>
-</div>
-
-<!-- Pricing Row -->
-<div class="w3-row-padding w3-center w3-padding-64" id="pricing">
-    <h2>PRICING</h2>
-    <p>Choose a pricing plan that fits your needs.</p><br>
-    <div class="w3-third w3-margin-bottom">
-      <ul class="w3-ul w3-border w3-hover-shadow">
-        <li class="w3-theme">
-          <p class="w3-xlarge">Basic</p>
-        </li>
-        <li class="w3-padding-16"><b>10GB</b> Storage</li>
-        <li class="w3-padding-16"><b>10</b> Emails</li>
-        <li class="w3-padding-16"><b>10</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide"><i class="fa fa-usd"></i> 10</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-theme-l5 w3-padding-24">
-          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>
-        </li>
-      </ul>
-    </div>
-
-    <div class="w3-third w3-margin-bottom">
-      <ul class="w3-ul w3-border w3-hover-shadow">
-        <li class="w3-theme-l2">
-          <p class="w3-xlarge">Pro</p>
-        </li>
-        <li class="w3-padding-16"><b>25GB</b> Storage</li>
-        <li class="w3-padding-16"><b>25</b> Emails</li>
-        <li class="w3-padding-16"><b>25</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide"><i class="fa fa-usd"></i> 25</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-theme-l5 w3-padding-24">
-          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>
-        </li>
-      </ul>
-    </div>
-
-    <div class="w3-third w3-margin-bottom">
-      <ul class="w3-ul w3-border w3-hover-shadow">
-        <li class="w3-theme">
-          <p class="w3-xlarge">Premium</p>
-        </li>
-        <li class="w3-padding-16"><b>50GB</b> Storage</li>
-        <li class="w3-padding-16"><b>50</b> Emails</li>
-        <li class="w3-padding-16"><b>50</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide"><i class="fa fa-usd"></i> 50</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-theme-l5 w3-padding-24">
-          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>
-        </li>
-      </ul>
-    </div>
 </div>
 
 <!-- Contact Container -->

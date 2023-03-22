@@ -27,9 +27,9 @@
  <div class="w3-bar w3-theme-d2 w3-left-align">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Home</a>
+  <a href="#breeds" class="w3-bar-item w3-button w3-hide-small w3-hover-white">All Breeds</a>
+  <a href="#activities" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Activities</a>
   <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
-  <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">All Breeds</a>
-  <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Events and Activities</a>
   <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
   </div>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>
@@ -37,16 +37,16 @@
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+    <a href="#breeds" class="w3-bar-item w3-button">All Breeds</a>
+    <a href="#activities" class="w3-bar-item w3-button">Activities</a>
     <a href="#team" class="w3-bar-item w3-button">Team</a>
-    <a href="#work" class="w3-bar-item w3-button">Work</a>
-    <a href="#pricing" class="w3-bar-item w3-button">Price</a>
     <a href="#contact" class="w3-bar-item w3-button">Contact</a>
     <a href="#" class="w3-bar-item w3-button">Search</a>
   </div>
 
 <!-- Image Header -->
 <div class="w3-display-container w3-animate-opacity">
-  <img src="https://thebark.com/sites/default/files/styles/full/public/content/blog/full/purebred-dogs.jpg.653x0_q80_crop-smart.jpg?itok=h-U9rqOw" alt="boat" style="width:75%;min-height:350px;max-height:600px;">
+  <img src="https://i0.wp.com/brdtc.org/wp-content/uploads/2016/05/dog-banner-image.png?fit=660%2C174&ssl=1" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
   <div class="w3-container w3-display-bottomleft w3-margin-bottom">  
   </div>
 </div>
@@ -78,14 +78,15 @@
   </div>
 </div>
 
-<a routerLink='breed-list' routerLinkActive="active">breeds
-<!-- <button onclick=>View All Breeds</button> -->
-</a>
+<a routerLink='app-breed-list' routerLinkActive="active">
+<button onclick=>View All Breeds</button>
+</a><router-outlet></router-outlet>
+
 
 <!-- Team Container -->
 <div class="w3-container w3-padding-64 w3-center" id="team">
 <h2>OUR TEAM</h2>
-<p>Meet the team - our office rats:</p>
+<p>Meet the team:</p>
 
 <div class="w3-row"><br>
 

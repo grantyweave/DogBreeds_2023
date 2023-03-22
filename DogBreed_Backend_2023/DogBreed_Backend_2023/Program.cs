@@ -29,7 +29,7 @@ app.UseCors("CorsPolicy");
 app.UseAuthorization();
 app.MapControllers();
 
-using (var context = new BreedContext())
+/*using (var context = new BreedContext())
 {
   context.Database.EnsureCreated();
 
@@ -45,6 +45,6 @@ using (var context = new BreedContext())
       });
   }
   context.SaveChanges();
-}
+}*/
 
 app.Run();

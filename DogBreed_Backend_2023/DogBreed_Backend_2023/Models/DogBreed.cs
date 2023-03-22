@@ -6,5 +6,7 @@ namespace DogBreed_Backend_2023.Models
     public string Breed { get; set; }
     public string Origin { get; set; }
     public string Url { get; set; }
+
+    public string Img { get; set; }
   }
 }

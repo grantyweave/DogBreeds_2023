@@ -28,4 +28,10 @@ export class AppComponent {
         // do calculation
       });
   }
+  // searchByDogBreed(breed:IBreeds) {
+  //   this.repositoryService.searchAllDogBreeds(breed).subscribe(
+  //     (response) => {
+  //       this.dogBreeds = response;
+  // }
+  // )
 }

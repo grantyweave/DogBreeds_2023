@@ -17,4 +17,7 @@ export class DogRepositoryService  {
   getDogBreeds() {
     return this.http.get(this.apiUri)
   }
+  // searchAllDogBreeds(breed:IBreeds){
+  //   return this.http.get(`${this.apiUri}/{breedName}`, breed)
+  // }
 }

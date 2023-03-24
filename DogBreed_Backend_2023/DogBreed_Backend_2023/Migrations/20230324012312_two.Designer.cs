@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DogBreed_Backend_2023.Migrations
 {
     [DbContext(typeof(BreedContext))]
-    [Migration("20230320225620_second_migration")]
-    partial class second_migration
+    [Migration("20230324012312_two")]
+    partial class two
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,6 +56,10 @@ namespace DogBreed_Backend_2023.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Img")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Origin")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -69,19 +73,83 @@ namespace DogBreed_Backend_2023.Migrations
                     b.ToTable("DogBreeds");
                 });
 
+            modelBuilder.Entity("DogBreed_Backend_2023.Models.Favorite", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FavoriteBreedId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FavoriteBreedId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favorites");
+                });
+
             modelBuilder.Entity("DogBreed_Backend_2023.Models.User", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserName")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.ToTable("FavoriteBreeds");
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("DogBreed_Backend_2023.Models.Favorite", b =>
+                {
+                    b.HasOne("DogBreed_Backend_2023.Models.DogBreed", "FavoriteBreed")
+                        .WithMany()
+                        .HasForeignKey("FavoriteBreedId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DogBreed_Backend_2023.Models.User", "User")
+                        .WithMany("FavoriteBreeds")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FavoriteBreed");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DogBreed_Backend_2023.Models.User", b =>
+                {
+                    b.Navigation("FavoriteBreeds");
                 });
 #pragma warning restore 612, 618
         }

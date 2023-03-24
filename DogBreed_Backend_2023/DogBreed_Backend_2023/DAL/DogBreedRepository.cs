@@ -25,17 +25,17 @@ namespace DogBreed_Backend_2023.DAL
 
     //FAVORITES
 
-    public User AddFavoriteBreed(User newFavoriteBreed)
-    { //WIP
-      _dbContext.FavoriteBreeds.Add(newFavoriteBreed);
-      _dbContext.SaveChanges();
-      return newFavoriteBreed;
-    }
-    public List<int> GetAllUserFavoriteBreeds(int userId)
-    {
-      var usersBreeds = _dbContext.FavoriteBreeds.FirstOrDefault(x => x.UserName == userId).FavoriteBreeds.ToList();
-      return usersBreeds;
-    }
+    //public User AddFavoriteBreed(User newFavoriteBreed)
+    //{ //WIP
+    // // _dbContext.FavoriteBreeds.Add(newFavoriteBreed);
+    //  _dbContext.SaveChanges();
+    //  return newFavoriteBreed;
+    //}
+    //public List<int> GetAllUserFavoriteBreeds(int userId)
+    //{
+    //  var usersBreeds = _dbContext.FavoriteBreeds.FirstOrDefault(x => x.UserName == userId).FavoriteBreeds.ToList();
+    //  return usersBreeds;
+    //}
     //public void DeleteFavoriteBreed(int userId, int breedId)
     //{ //WIP
     //  var favorites = _dbContext.FavoriteBreeds.FirstOrDefault(x => x.UserName == userId).FavoriteBreeds.ToList();

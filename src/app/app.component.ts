@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { DogRepositoryService } from './dog-repository.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IBreeds } from './interface/breeds';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,20 @@ import { IBreeds } from './interface/breeds';
 })
 export class AppComponent {
   title = 'DogBreed_AngApp';
+  isUserLoggedIn = false;
 
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    let storeData = localStorage.getItem("isUserLoggedIn");
+    console.log("StoreData: " + storeData);
+
+    if( storeData != null && storeData == "true")
+       this.isUserLoggedIn = true;
+    else
+
+
+       this.isUserLoggedIn = false;
 
   constructor(private repositoryService: DogRepositoryService) { }
   dogBreeds: any;

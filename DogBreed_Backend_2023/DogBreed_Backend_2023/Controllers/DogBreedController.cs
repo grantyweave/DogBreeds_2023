@@ -1,6 +1,7 @@
 using Azure.Core;
 using DogBreed_Backend_2023.DAL;
 using DogBreed_Backend_2023.Models;
+using Flurl.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -12,40 +13,42 @@ namespace DogBreed_Backend_2023.Controllers
   {
     DogBreedRepository repo = new DogBreedRepository();
 
-    /*var client = new HttpClient();
-    var request = new HttpRequestMessage(HttpMethod.Get, "https://dog-breeds2.p.rapidapi.com/dog_breeds");
-    Request.Headers.Add("X-RapidAPI-Key", "fa9f7972a9msh92b06a00e5027a2p139140jsnc1f3af45cbca");
-request.Headers.Add("X-RapidAPI-Host", "dog-breeds2.p.rapidapi.com");
-var response = await client.SendAsync(request);
-    response.EnsureSuccessStatusCode();
-Console.WriteLine(await response.Content.ReadAsStringAsync());*/
-
-
-    /*public IActionResult Index()
+    [HttpGet("breed")]
+    public async Task<IActionResult> GetAllBreeds()
     {
-      string apiUri = "https://dog-breeds2.p.rapidapi.com/dog_breeds";
-      var apiTask = apiUri.WithHeaders(new
+      List<DogBreed> apiResult = await GetAllDogBreeds();
+      List<DogBreed> dogBreeds = apiResult;
+      return Ok(dogBreeds);
+    }
+
+    private static async Task<List<DogBreed>> GetAllDogBreeds()
+    {
+      string apiUri = $"https://dog-breeds2.p.rapidapi.com/dog_breeds";
+      var apiResult = await apiUri.WithHeaders(new
       {
         x_rapidapi_host = "dog-breeds2.p.rapidapi.com",
         x_rapidapi_key = "fa9f7972a9msh92b06a00e5027a2p139140jsnc1f3af45cbca"
 
-      }).GetJsonAsync<List<DogBreedApi>>();
-      apiTask.Wait();
-      List<DogBreedApi> breeds = apiTask.Result;
-      return View(breeds);
-    }*/
-
-
-    [HttpGet()]
-    public List<DogBreedApi> GetAll()
-    {
-      return repo.GetAllBreeds();
+      }).GetJsonAsync<List<DogBreed>>();
+      return apiResult;
     }
 
-    [HttpGet("{id}")]
-    public DogBreedApi GetById(int id)
+    [HttpGet("{breedName}")]
+    public async Task<IActionResult> GetByBreedName(string breedName)
     {
-      return repo.FindById(id);
-    }
+      string apiUri = $"https://dog-breeds2.p.rapidapi.com/dog_breeds/breed/{breedName}";
+      var apiResult = await apiUri.WithHeaders(new
+      {
+        x_rapidapi_host = "dog-breeds2.p.rapidapi.com",
+        x_rapidapi_key = "fa9f7972a9msh92b06a00e5027a2p139140jsnc1f3af45cbca"
+
+      }).GetJsonAsync<List<DogBreed>>();
+      var firstDogBreed = apiResult.FirstOrDefault();
+      if (firstDogBreed == null)
+      {
+        return NotFound("Breed not found.");
+      };
+      return Ok(apiResult.FirstOrDefault());
     }
   }
+}

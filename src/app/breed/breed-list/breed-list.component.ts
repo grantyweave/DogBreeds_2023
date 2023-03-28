@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { DogRepositoryService } from './dog-repository.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IBreeds } from './interface/breeds';
+import { DogRepositoryService } from 'src/app/dog-repository.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-breed-list',
+  templateUrl: './breed-list.component.html',
+  styleUrls: ['./breed-list.component.css']
 })
-export class AppComponent {
+export class BreedListComponent {
   title = 'DogBreed_AngApp';
 
 
@@ -19,7 +16,6 @@ export class AppComponent {
   ngOnInit(): void {
     this.getAllDogBreeds();
   }
-
   getAllDogBreeds() {
     this.repositoryService.getDogBreeds().subscribe(
       (response) => {

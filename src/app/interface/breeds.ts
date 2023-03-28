@@ -3,4 +3,5 @@ export interface IBreeds{
     breed: string
     origin: string
     url: string
+    img: string
 }

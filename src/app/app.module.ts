@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { BreedModule } from './breed/breed.module';
 import { AppRoutingModule } from './app-routing.module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { BreedModule } from './breed/breed.module';
+import { BreedListComponent } from './breed/breed-list/breed-list.component';
 
 @NgModule({
   declarations: [
+    BreedListComponent,
     AppComponent
   ],
   imports: [
@@ -16,7 +18,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BreedModule,
     Ng2SearchPipeModule
   ],
   providers: [],

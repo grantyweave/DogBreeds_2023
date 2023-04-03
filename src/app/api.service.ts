@@ -23,7 +23,6 @@ addfavorite(){
     .set('X-RapidAPI-Host', 'dog-breeds2.p.rapidapi.com')
     .set('X-RapidAPI-Key', `0af66338bfmshdc0ab0c7e84ed2ap1db3a7jsncc8b1aa9b0e5`);
     const result = this.http.get(this.breedUri,{headers})
-
     return result
   }
 }

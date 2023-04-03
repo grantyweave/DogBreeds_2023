@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ApiService } from 'src/app/api.service';
 import { DogRepositoryService } from 'src/app/dog-repository.service';
 import { IBreeds } from 'src/app/interface/breeds';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-breed-list',
@@ -11,14 +11,14 @@ import { IBreeds } from 'src/app/interface/breeds';
   styleUrls: ['./breed-list.component.css']
 })
 export class BreedListComponent {
-  title = 'DogBreed_AngApp';
-
+  // title = 'DogBreed_AngApp';
 
   constructor(private repositoryService: DogRepositoryService, private api: ApiService) { }
   dogBreeds?: any;
   searchText?: any;
   foundBreeds: boolean = false;
-  breedSearch: IBreeds | undefined;
+  breedSearch: IBreeds[] | undefined;
+ 
 
   ngOnInit(): void {
     this.getAllDogBreeds();
@@ -29,6 +29,10 @@ export class BreedListComponent {
         this.dogBreeds = response;
       });
   }
+  // onSelect(breed: IBreeds): void {
+  //   this.repositoryService. = breed;
+  // }
+
   searchByDogBreed(form: NgForm) {
     this.searchText = form.form.value.searchText;
     this.repositoryService.searchAllDogBreeds(this.searchText).subscribe(

@@ -4,4 +4,7 @@ export interface IBreeds{
     origin: string
     url: string
     img: string
+    notes?: string
+    userId?: number
+    
 }

@@ -1,84 +1,12 @@
-<!-- <div class="w3-container">
-    <li *ngFor="let breed of dogBreeds">        
-      <span  style="font-size: 20px;text-align: center;">
-        <img src={{breed.img}}>
-        <br>
-        Breed: {{breed.breed}}
-        <br>
-        Country of Origin: {{breed.origin}}
-      <br>
-      <a href={{breed.url}}>Learn more</a></span>      
-    </li>
-       </div> -->
-
-<!-- <form action="/" method="get">
-<input type="text" name="breed"/>
-<input type="submit" value="Search" />
-</form> -->
-
-<!-- <div class="container text-center">
-  <h1>{{title}}</h1>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="breed-list">
-      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a dog by typing its breed name">
+<div *ngFor="let dog of dogBreeds">  
+  <div class="container">
+    <div class="image">
+      <img src={{dog.img}} />
+      <button #btn type="button" class="btn w3-circle" (click)="addFave(dog);"><i class="fa fa-paw fa-2x"></i></button>
     </div>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>Id</th>
-        <th>Hero Name</th>
-        <th>Country</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let breed of breeds | filter:searchText">
-        <td>{{breed.id}}</td>
-        <td>{{hero.name}}</td>
-        <td>{{breed.country}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</div> -->
-          <html>
-
-            <style>
-            .container {
-            display: flex;
-            align-items: left;
-            justify-content: left;
-            width: 850px;
-            background-color: rgb(142, 182, 208);
-            padding: 30px;
-            margin: 20px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-          }
-          
-          img {
-            max-width: 100%;
-            max-height:100%;
-          }
-          
-          .text {
-            font-size: 20px;
-            padding-left: 20px;
-          }
-            </style>
-            
-            <body>
-              <div *ngFor="let breed of dogBreeds">  
-              <div class="container">
-                <div class="image">
-                  <img src={{breed.img}}>
-                </div>
-                <div class="text">
-                  <h1>{{breed.breed}}</h1>
-                  <h3>Country of Origin: {{breed.origin}}</h3>
-                  <p><a href={{breed.url}}>Learn more about this breed</a></p>
-                </div>
-              </div>
-              </div>
-            </body>
-          </html>
+    <div class="text w3-center">
+      <h1>{{dog.breed}}</h1>
+      <h3>Country of Origin: {{dog.origin}}</h3>
+      <p><a href={{dog.url}}>Learn more about the {{dog.breed}}</a></p>
+    </div>
+</div>

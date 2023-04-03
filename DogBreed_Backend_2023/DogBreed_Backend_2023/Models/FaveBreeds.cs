@@ -9,6 +9,7 @@ namespace DogBreed_Backend_2023.Models
 
     public string Img { get; set; }
 
+    public string Notes { get; set; }
     public int UserId { get; set; }
     public Users User { get; set; }
   }

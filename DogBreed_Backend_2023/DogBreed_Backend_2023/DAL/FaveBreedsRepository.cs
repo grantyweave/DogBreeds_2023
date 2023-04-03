@@ -7,34 +7,29 @@ namespace DogBreed_Backend_2023.DAL
 {
   public class FaveBreedsRepository
   {
-    private BreedContext _dbContext = new BreedContext();
-    private UsersRepository userRepo = new UsersRepository();
-    private FaveBreedsRepository faveRepo = new FaveBreedsRepository();
+    private BreedContext _Db = new BreedContext();
 
-    public void AddFavoriteBreed(string userLastName, FaveBreeds breedToAdd)
+    public FaveBreeds AddFavoriteBreed(FaveBreeds breedToAdd)
     {
-      Users currentUser = _dbContext.Users.FirstOrDefault(x => x.LastName.ToLower() == userLastName.ToLower());
+      Users user = _Db.Users.FirstOrDefault(x => x.Id == breedToAdd.UserId);
+      user.Favorites.Add(breedToAdd);
+      _Db.SaveChanges();
+      return breedToAdd;
 
-      if (currentUser != null)
-      {
-        currentUser.Favorites.Add(breedToAdd);
-        _dbContext.SaveChanges();
-      }
     }
-    public List<FaveBreeds> GetAllUserFavoriteBreeds(string userLastName)
+    public List<FaveBreeds> GetAllUserFavoriteBreeds(Users user)
     {
-      List<FaveBreeds> breedList = _dbContext.Users.FirstOrDefault(x => x.LastName == userLastName).Favorites.ToList();
+      List<FaveBreeds> breedList = user.Favorites.ToList();
       return breedList;
 
     }
-    public void DeleteFavoriteBreed(string userLastName, int breedId)
+    public void DeleteFavoriteBreed(FaveBreeds breedToDelete)
     {
-      Users currentUser = _dbContext.Users.FirstOrDefault(x => x.LastName.ToLower() == userLastName.ToLower());
-      FaveBreeds breedToRemove = _dbContext.Favorites.FirstOrDefault(x => x.Id == breedId);
-      if (currentUser != null)
-      {
-        currentUser.Favorites.Remove(breedToRemove);
-      }
+
+      Users user = _Db.Users.FirstOrDefault(x => x.Id == breedToDelete.UserId);
+
+      user.Favorites.Remove(breedToDelete);
+      _Db.SaveChanges();
 
     }
 

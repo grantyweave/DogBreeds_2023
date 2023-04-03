@@ -9,79 +9,61 @@ namespace DogBreed_Backend_2023.Controllers
   [ApiController]
   public class UsersController : Controller
   {
-    UsersRepository repo=new UsersRepository();
+    // user api endpoints
+    UsersRepository userRepo = new UsersRepository();
 
-    [HttpPost("add")]
-    public Users AddNewUser(string firstName, string lastName, string email, string password)
+
+    [HttpPost("login")]
+    public Users LoginUser(Users newUser)
     {
-      Users newUser = new Users
-      {
-        FirstName = firstName,
-        LastName = lastName,
-        Email = email,
-        Password = password,
-
-      };
-      return repo.AddNewUser(newUser);
+      return userRepo.LoginUser(newUser);
     }
-
 
     [HttpGet()]
     public List<Users> GetAll()
     {
-      return repo.GetAllUsers();
+      return userRepo.GetAllUsers();
     }
 
     [HttpGet("{id}")]
-    public Users GetUserById(int id)
+    public Users getUserById(int userId)
     {
-      return repo.FindByUserId(id);
+      Users user = userRepo.getUserById(userId);
+      return user;
+
     }
 
-    [HttpPost("delete/{id}")]
-    public HttpResponseMessage DeleteUserById(int id)
+    [HttpDelete("delete")]
+    public void DeleteUser(Users userToDelete)
     {
-      try
-      {
-        if (repo.DeleteUserById(id) == true)
-        {
-          return new HttpResponseMessage(System.Net.HttpStatusCode.NoContent);
-        }
-        else
-        {
-          return new HttpResponseMessage(HttpStatusCode.NotFound);
-        }
-      }
-      catch (Exception ex)
-      {
-        return new HttpResponseMessage(HttpStatusCode.ServiceUnavailable);
-      }
+      userRepo.DeleteUser(userToDelete);
     }
 
     [HttpPost("update")]
-    public HttpResponseMessage UpdateUser(string userFirstName,string userLastName, string password)
+    public void UpdateUser(string firstName, string lastName, string email, string password, bool isAdmin, Users userToUpdate)
     {
-      Users userToUpdate = new Users
-      {
-        FirstName = userFirstName,
-        LastName = userLastName,
-        Password = password
-      };
-      try
-      {
-        if (repo.UpdateUser(userToUpdate) == true)
-        {
-          return new HttpResponseMessage(HttpStatusCode.NoContent);
-        }
-        else
-        {
-          return new HttpResponseMessage(HttpStatusCode.NotFound);
-        }
-      }
-      catch (Exception ex)
-      {
-        return new HttpResponseMessage(HttpStatusCode.ServiceUnavailable);
-      }
+      userRepo.UpdateUser(firstName, lastName, email, password, isAdmin, userToUpdate);
+    }
+
+    // favorites api endpoints
+    FaveBreedsRepository faveRepo = new FaveBreedsRepository();
+
+    [HttpPost("/favorites/add")]
+    public FaveBreeds AddFavoriteBreed(FaveBreeds breedToAdd)
+    {
+
+      faveRepo.AddFavoriteBreed(breedToAdd);
+      return breedToAdd;
+    }
+    [HttpGet("/favorites")]
+    public List<FaveBreeds> GetFaveBreeds(Users user)
+    {
+      return faveRepo.GetAllUserFavoriteBreeds(user);
+    }
+    [HttpDelete("/favorites/delete")]
+    public void DeleteFaveBreedFromUser(FaveBreeds breedToDelete)
+    {
+
     }
   }
 }

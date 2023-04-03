@@ -8,15 +8,21 @@ namespace DogBreed_Backend_2023.DAL
   {
     private BreedContext _context = new BreedContext();
 
-    public Users AddNewUser(Users newUser)
+    public Users LoginUser(Users newUser)
     {
-      _context.Users.Add(newUser);
-      _context.SaveChanges();
-      return GetLatestUser();
-    }
-    public Users GetLatestUser()
-    {
-      return _context.Users.OrderByDescending(x => x.Id).FirstOrDefault();
+
+      if (newUser.FirstName == "null")
+      {
+        Users getUser = _context.Users.FirstOrDefault(x => x.Email == newUser.Email & x.Password == newUser.Password);
+        return getUser;
+      }
+      else
+      {
+        _context.Users.Add(newUser);
+        _context.SaveChanges();
+        return newUser;
+      }
+
     }
 
     public List<Users> GetAllUsers()
@@ -24,40 +30,29 @@ namespace DogBreed_Backend_2023.DAL
       return _context.Users.ToList();
     }
 
-    public Users FindByUserLastName(string userName)
+    public Users getUserById(int id)
     {
-      // AsNoTracking will not lock the ID allowing updating it after finding it
-      return _context.Users.AsNoTracking().FirstOrDefault(x => x.LastName == userName);
+      return _context.Users.FirstOrDefault(x => x.Id == id);
     }
-    public Users FindByUserId(int id)
-    {
-      // AsNoTracking will not lock the ID allowing updating it after finding it
-      return _context.Users.AsNoTracking().FirstOrDefault(x => x.Id == id);
-    }
-    public bool DeleteUserById(int id)
-    {
-      Users userToDelete = FindByUserId(id);
 
-      if (userToDelete == null)
-      {
-        return false;
-      }
-      else
-      {
-        _context.Users.Remove(userToDelete);
-        _context.SaveChanges();
-        return true;
-      }
-    }
-    public bool UpdateUser(Users userToUpdate)
+
+    public void UpdateUser(string firstName, string lastName, string email, string password, bool isAdmin, Users user)
     {
-      if (FindByUserId(userToUpdate.Id) == null)
-      {
-        return false;
-      }
+      Users userToUpdate = _context.Users.FirstOrDefault(x => x.Id == user.Id);
+
+      userToUpdate.FirstName = firstName;
+      userToUpdate.LastName = lastName;
+      userToUpdate.Email = email;
+      userToUpdate.Password = password;
+      userToUpdate.IsAdmin = isAdmin;
       _context.Users.Update(userToUpdate);
       _context.SaveChanges();
-      return true;
+    }
+
+    public void DeleteUser(Users userToUpdate)
+    {
+      _context.Users.Remove(userToUpdate);
+      _context.SaveChanges();
     }
   }
 }

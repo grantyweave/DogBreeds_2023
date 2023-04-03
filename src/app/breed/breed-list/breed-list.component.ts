@@ -11,6 +11,30 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./breed-list.component.css']
 })
 export class BreedListComponent {
+  title = 'DogBreed_AngApp';
+  constructor(private repositoryService: DogRepositoryService) { }
+  dogBreeds: any;
+  ngOnInit(): void {
+    this.getAllDogBreeds();
+  }
+  getAllDogBreeds() {
+    this.repositoryService.getDogBreeds().subscribe(
+      (response) => {
+        this.dogBreeds = response;
+        // add alert
+        // do calculation
+      });
+  }
+}
+
+
+
+@Component({
+  selector: 'app-breed-list',
+  templateUrl: './breed-list.component.html',
+  styleUrls: ['./breed-list.component.css']
+})
+export class BreedListComponent {
   // title = 'DogBreed_AngApp';
 
   constructor(private repositoryService: DogRepositoryService, private api: ApiService) { }

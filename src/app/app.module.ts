@@ -12,10 +12,12 @@ import { BreedListComponent } from './breed/breed-list/breed-list.component';
   declarations: [
     BreedListComponent,
     AppComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule 
     HttpClientModule,
     FormsModule,
     Ng2SearchPipeModule

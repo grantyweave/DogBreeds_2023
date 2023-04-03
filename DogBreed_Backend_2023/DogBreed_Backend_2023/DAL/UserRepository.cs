@@ -7,6 +7,7 @@ namespace DogBreed_Backend_2023.DAL
 {
   public class UserRepository
   {
+
     private UserContext _dbContext = new UserContext();
 
     public List<User> GetAllUsers()
@@ -87,6 +88,7 @@ namespace DogBreed_Backend_2023.DAL
       _dbContext.Activities.Remove(activities);
       _dbContext.SaveChanges();
       return true;
+
     }
   }
 }

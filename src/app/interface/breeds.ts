@@ -4,4 +4,5 @@ export interface IBreeds{
     origin: string
     url: string
     img: string
+    idBreed: string
 }

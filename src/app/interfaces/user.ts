@@ -1,7 +1,9 @@
 export interface IUser{
     Id?: number
-    firstName: string
-    lastName: string
-    email: string
-    password: string
+    FirstName: string
+    LastName: string
+    Email: string
+    Password: string
+    Favorites?: []
+    IsAdmin?: boolean
 }

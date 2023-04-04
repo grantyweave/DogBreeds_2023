@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BreedListComponent } from './breed-list/breed-list.component';
-import { BreedSearchComponent } from './breed-search/breed-search.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    BreedListComponent,
-    BreedSearchComponent
+    BreedListComponent
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+  ],
+  exports: [
+    BreedListComponent
   ]
 })
 export class BreedModule { }

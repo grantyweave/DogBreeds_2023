@@ -10,6 +10,7 @@ import { ChangeBgDirective } from './change-bg.directive';
 import { CommonModule } from '@angular/common';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CoreModule } from './core/core.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CoreModule } from './core/core.module';
     CommonModule,
     BreedModule,
     ReactiveFormsModule,
-    CoreModule
+    CoreModule,
+    UserModule
   ],
   providers: [
     

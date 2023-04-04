@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { QuizService } from '../quiz.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { QuizService } from '../quiz.service';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent {
+
+  @Input() currentUser: any;
 
   public name: string="";
   public questionList: any = [];

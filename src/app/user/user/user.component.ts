@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IUser } from 'src/app/interfaces/user';
 
@@ -7,21 +7,16 @@ import { IUser } from 'src/app/interfaces/user';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent {
+export class UserComponent implements AfterViewInit {
 
-  firstName: string = ""
-  lastName?: string = ""
-  email: string = ""
-  password: string = ""
+  @Input() currentUser: any;
+  faveBreeds: any;
+  
+  
+  constructor(){}
 
-  addNewUser(form: NgForm) {
-    let newUser: IUser = {
-     
-     firstName: form.form.value.firstName,
-     lastName: form.form.value.lastName,
-     email: form.form.value.email,
-     password: form.form.value.password
-    };
+  ngAfterViewInit(): void {
+    this.faveBreeds = this.currentUser.Favorites;
   }
 
 }

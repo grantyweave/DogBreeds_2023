@@ -9,7 +9,8 @@ namespace DogBreed_Backend_2023.Models
     public string? LastName { get; set; }
     public string Email { get; set; }
     public string Password { get; set; }
-    public virtual ICollection<Favorite> FavoriteBreeds { get; set; }
+    public bool IsAdmin { get; set; }
+    public virtual ICollection<FaveBreeds> FavoriteBreeds { get; set; }
     
   }
 }

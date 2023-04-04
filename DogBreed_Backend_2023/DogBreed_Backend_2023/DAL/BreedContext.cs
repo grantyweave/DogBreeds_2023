@@ -21,8 +21,7 @@ namespace DogBreed_Backend_2023.DAL
     // Create the table based off the model
     public DbSet<DogBreed> DogBreeds { get; set; }
     public DbSet<User> Users { get; set; }
-    public DbSet<ActivityModel> Activities { get; set; }
-    public DbSet<Favorite> Favorites { get; set; }
+    public DbSet<FaveBreeds> Favorites { get; set; }
 
 
 

@@ -19,6 +19,7 @@ export class DogRepositoryService  {
   }
 
   searchAllDogBreeds(breed:IBreeds){
-    return this.http.get(`${this.apiUri}/{breedName}`)
+    var uri ='https://localhost:7078/api/DogBreed'
+    return this.http.get(`${uri}/{breedName}`)
   }
 }

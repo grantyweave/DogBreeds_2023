@@ -28,8 +28,9 @@ namespace DogBreed_Backend_2023.Controllers
       {
         x_rapidapi_host = "dog-breeds2.p.rapidapi.com",
         x_rapidapi_key = "e8eb4c4df6msh6a7d08468b4a2c5p1fae34jsn71c28a01494e"
-
       }).GetJsonAsync<List<DogBreed>>();
+      // Sort the dog breeds alphabetically by name
+      apiResult = apiResult.OrderBy(d => d.Breed).ToList();
       return apiResult;
     }
 

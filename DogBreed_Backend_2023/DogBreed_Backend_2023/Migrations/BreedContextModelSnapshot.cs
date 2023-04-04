@@ -16,33 +16,40 @@ namespace DogBreed_Backend_2023.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.14")
+            
+                .HasAnnotation("ProductVersion", "6.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("DogBreed_Backend_2023.Models.ActivityModel", b =>
+
+            modelBuilder.Entity("DogBreed_Backend_2023.Models.DogBreed", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                    b.Property<string>("Description")
+                    b.Property<string>("breed")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("origin")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Activities");
+                    b.HasKey("id");
+
+                    b.ToTable("DogBreeds");
                 });
 
-            modelBuilder.Entity("DogBreed_Backend_2023.Models.DogBreed", b =>
+            modelBuilder.Entity("DogBreed_Backend_2023.Models.FaveBreeds", b =>
+
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,6 +65,10 @@ namespace DogBreed_Backend_2023.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Origin")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -66,39 +77,53 @@ namespace DogBreed_Backend_2023.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("DogBreeds");
-                });
-
-            modelBuilder.Entity("DogBreed_Backend_2023.Models.Favorite", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("FavoriteBreedId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Notes")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("FavoriteBreedId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Favorites");
                 });
 
-            modelBuilder.Entity("DogBreed_Backend_2023.Models.User", b =>
+            modelBuilder.Entity("DogBreed_Backend_2023.Models.Member", b =>
+
+                     {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("firstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("lastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("linkedin")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Team");
+                });
+               
+
+            modelBuilder.Entity("DogBreed_Backend_2023.Models.Users", b =>
+            
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -113,42 +138,37 @@ namespace DogBreed_Backend_2023.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+                        
+                         b.Property<string>("LastName")
 
-                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
+                        
+                         b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
+                        
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("bit");              
+                   
+                  
                     b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("DogBreed_Backend_2023.Models.Favorite", b =>
+            modelBuilder.Entity("DogBreed_Backend_2023.Models.FaveBreeds", b =>
                 {
-                    b.HasOne("DogBreed_Backend_2023.Models.DogBreed", "FavoriteBreed")
-                        .WithMany()
-                        .HasForeignKey("FavoriteBreedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DogBreed_Backend_2023.Models.User", "User")
-                        .WithMany("FavoriteBreeds")
+                    b.HasOne("DogBreed_Backend_2023.Models.Users", "User")
+                        .WithMany("Favorites")            
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("FavoriteBreed");
-
-                    b.Navigation("User");
+                   b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DogBreed_Backend_2023.Models.User", b =>
-                {
-                    b.Navigation("FavoriteBreeds");
-                });
+          
+
 #pragma warning restore 612, 618
         }
     }

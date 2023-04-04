@@ -1,21 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BreedListComponent } from './breed/breed-list/breed-list.component';
 import { CommonModule } from '@angular/common';
-import { ExpenseEntryComponent } from './expense-entry/expense-entry.component';
-import { ExpenseEntryListComponent } from './expense-entry-list/expense-entry-list.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-
-import { ExpenseGuard } from './expense.guard';
+import { BreedListComponent } from './breed/breed-list/breed-list.component';
+import { UserComponent } from './user/user/user.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
-  { path: 'breed-list', component: BreedListComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: 'expenses', component: ExpenseEntryListComponent, canActivate: [ExpenseGuard] },
-  { path: 'expenses/detail/:id', component: ExpenseEntryComponent, canActivate: [ExpenseGuard] },
-  { path: '', redirectTo: 'expenses', pathMatch: 'full' }
+  { path: 'breed-list',component: BreedListComponent},
+  { path: "user", component: UserComponent},
+  { path: "quiz", component: QuizComponent}
+  
 ];
 
 @NgModule({

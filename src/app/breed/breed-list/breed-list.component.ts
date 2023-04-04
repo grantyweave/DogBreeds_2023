@@ -1,3 +1,4 @@
+
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApiService } from 'src/app/api.service';
@@ -9,6 +10,7 @@ import { IBreeds } from 'src/app/interfaces/breed';
   styleUrls: ['./breed-list.component.css']
 })
 export class BreedListComponent {
+
 
   @Input() currentUser: any;
   
@@ -56,3 +58,5 @@ export class BreedListComponent {
     } 
 
 }
+
+

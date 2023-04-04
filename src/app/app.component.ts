@@ -3,6 +3,7 @@ import { ApiService } from './api.service';
 import { IUser } from './interfaces/user';
 import { ITeam } from './interfaces/team';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -134,6 +135,4 @@ export class AppComponent {
     document.getElementById("quizModal")!.style.display = "none"
   }
 
-
-    
 }

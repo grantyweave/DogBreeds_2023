@@ -67,7 +67,6 @@ namespace DogBreed_Backend_2023.Controllers
     {
 
     }
-
   }
 }
 

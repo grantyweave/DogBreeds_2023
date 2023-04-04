@@ -7,6 +7,7 @@ import { IBreeds } from './interfaces/breed';
   providedIn: 'root'
 })
 export class ApiService {
+
   constructor(private http: HttpClient){}
   
   //breed related api methods
@@ -19,6 +20,7 @@ export class ApiService {
     .set('X-RapidAPI-Host', 'dog-breeds2.p.rapidapi.com')
     .set('X-RapidAPI-Key', `0af66338bfmshdc0ab0c7e84ed2ap1db3a7jsncc8b1aa9b0e5`);
     const result = this.http.get(this.breedUri,{headers})
+
   
     return result
   }
@@ -51,3 +53,4 @@ export class ApiService {
   //member api methods
   private memberApi ='https://localhost:7078/api/Member'
 }
+

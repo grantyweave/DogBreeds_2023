@@ -1,5 +1,7 @@
 using DogBreed_Backend_2023.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
+using System.Linq;
 
 namespace DogBreed_Backend_2023.DAL
 {
@@ -54,6 +56,5 @@ namespace DogBreed_Backend_2023.DAL
       _context.Users.Remove(userToUpdate);
       _context.SaveChanges();
     }
-
   }
 }

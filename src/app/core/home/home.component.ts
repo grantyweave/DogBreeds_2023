@@ -1,3 +1,4 @@
+
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
@@ -6,7 +7,6 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
  
 
   @ViewChild('name') nameKey!: ElementRef;
@@ -14,5 +14,5 @@ export class HomeComponent {
   startQuiz(){
     localStorage.setItem("name",this.nameKey.nativeElement.value);
   }
-  
+ 
 }

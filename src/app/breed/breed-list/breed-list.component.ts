@@ -39,8 +39,8 @@ export class BreedListComponent {
       (response) => {
         this.dogBreeds = response;
         this.foundBreeds = true;
+        form.resetForm();
       }
     )
-    form.resetForm();
   }
 }

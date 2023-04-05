@@ -1,4 +1,3 @@
-
 namespace DogBreed_Backend_2023.Models
 {
   public class Member

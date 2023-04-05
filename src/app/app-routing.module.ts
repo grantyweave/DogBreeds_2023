@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BreedListComponent } from './breed/breed-list/breed-list.component';
 import { CommonModule } from '@angular/common';
-
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-
-import { ExpenseGuard } from './expense.guard';
+import { BreedListComponent } from './breed/breed-list/breed-list.component';
+import { UserComponent } from './user/user/user.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
-  { path: 'breed-list', component: BreedListComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: '', redirectTo: 'expenses', pathMatch: 'full' }
+  { path: 'breed-list',component: BreedListComponent},
+  { path: "user", component: UserComponent},
+  { path: "quiz", component: QuizComponent}
+  
 ];
 
 @NgModule({

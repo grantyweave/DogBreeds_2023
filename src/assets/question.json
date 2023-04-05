@@ -1,0 +1,141 @@
+{
+    "questions": [{
+            "questionText": "The first dogs registered in the American Kennel Club (AKC) belonged to what group?",
+            "options": [{
+                    "text": "Herding Group"
+                },
+                {
+                    "text": "Sporting Group",
+                    "correct": true
+                },
+                {
+                    "text": "Working Group"
+                },
+                {
+                    "text": "Hound Group"
+                }
+            ],
+            "explanation": "The 9 original “charter breeds” of the AKC, all recognized way back in 1878, were the Pointer, Chesapeake Bay Retriever, Clumber Spaniel, Cocker Spaniel, Sussex Spaniel, Irish Water Spaniel, Irish Setter, English Setter and Gordon Setter. They are all part of the Sporting Group."
+        },
+        {
+            "questionText": "Which dog yodels instead of barks?",
+            "options": [{
+                    "text": "Komondor"
+                },
+                {
+                    "text": "Otterhound"
+                },
+                {
+                    "text": "Basenji",
+                    "correct": true
+                },
+                {
+                    "text": "Basset Hound"
+                }
+            ],
+            "explanation": "Basenjis produce an unusual yodel-like sound due to an unusually shaped larynx."
+        },
+        {
+            "questionText": "True or False: Dalmatians are born with spots.",
+            "options": [{
+                    "text": "True"
+                },
+                {
+                    "text": "False",
+                    "correct": true
+                }
+            ],
+            "explanation": "Dalmatian puppies are born white with their spots coming in later."
+        },
+        {
+            "questionText": "Which breed was once known as St. John's Newfoundland?",
+            "options": [{
+                    "text": "Newfoundland"
+                },
+                {
+                    "text": "Golden Retriever"
+                },
+                {
+                    "text": "Labrador Retriever",
+                    "correct": true
+                },
+                {
+                    "text": "Puli"
+                }
+            ],
+            "explanation": "The Labrador Retriever originated in Newfoundland, off the coast of Canada."
+        },
+        {
+            "questionText": "Which dog breed is the smallest of them all?",
+            "options": [{
+                    "text": "Dachschund"
+                },
+                {
+                    "text": "Shih Tzu"
+                },
+                {
+                    "text": "Pomeranian"
+                },
+                {
+                    "text": "Chihuahua",
+                    "correct": true
+                }
+            ],
+            "explanation": "On average, chihuahuas weigh between 2.5-4.5 lbs and measure 5-8 inches tall."
+        },
+        {
+            "questionText": "Which dog breed has a black tongue?",
+            "options": [{
+                    "text": "Husky"
+                },
+                {
+                    "text": "Poodle"
+                },
+                {
+                    "text": "Weimaraner"
+                },
+                {
+                    "text": "Chow Chow",
+                    "correct": true
+                }
+            ],
+            "explanation": "Any dog breed can have a tongue with dark pigment, but a few breeds like the Chow Chow are more prone to it."
+        },
+        {
+            "questionText": "Which dog breed's coat has a texture that's similiar to human hair?",
+            "options": [{
+                    "text": "Brussels Griffon"
+                },
+                {
+                    "text": "Yorkshire Terrier",
+                    "correct": true
+                },
+                {
+                    "text": "Poodle"
+                },
+                {
+                    "text": "Smooth Fox Terrier"
+                }
+            ],
+            "explanation": "Yorkshire Terriers (or Yorkies) have long, flowing, silky coats that are similiar to human hair. If not brushed regularly, it can tangle into knots."
+        },
+        {
+            "questionText": "According to the American Kennel Club, what was the top dog breed in 2022?",
+            "options": [{
+                    "text": "French Bulldog",
+                    "correct": true
+                },
+                {
+                    "text": "German Shepherd"
+                },
+                {
+                    "text": "Labrador Retriever"
+                },
+                {
+                    "text": "Beagle"
+                }
+            ],
+            "explanation": "The French Bulldog overtook the Labrador Retriever to win the AKC's most popular dog breed poll in 2022. They have surged in popularity thanks to their small size and generally quit demeanor."
+        }
+    ]
+}

@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApiService } from 'src/app/api.service';
-import { DogRepositoryService } from 'src/app/dog-repository.service';
-import { IBreeds } from 'src/app/interface/breeds';
-import { HttpClientModule } from '@angular/common/http';
-
+import { IBreeds } from 'src/app/interfaces/breed';
 
 @Component({
   selector: 'app-breed-list',
@@ -12,31 +10,29 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./breed-list.component.css']
 })
 export class BreedListComponent {
-  // title = 'DogBreed_AngApp';
 
-  constructor(private repositoryService: DogRepositoryService, private api: ApiService) { }
+  @Input() currentUser: any;
+  
+  constructor(private api: ApiService) { }
   dogBreeds?: any;
   searchText?: any;
   foundBreeds: boolean = false;
   breedSearch: IBreeds[] | undefined;
- 
 
   ngOnInit(): void {
     this.getAllDogBreeds();
   }
+
   getAllDogBreeds() {
     this.api.getBreeds().subscribe(
       (response) => {
         this.dogBreeds = response;
       });
   }
-  // onSelect(breed: IBreeds): void {
-  //   this.repositoryService. = breed;
-  // }
 
   searchByDogBreed(form: NgForm) {
     this.searchText = form.form.value.searchText;
-    this.repositoryService.searchAllDogBreeds(this.searchText).subscribe(
+    this.api.searchAllDogBreeds(this.searchText).subscribe(
       (response) => {
         this.dogBreeds = response;
         this.foundBreeds = true;
@@ -44,4 +40,22 @@ export class BreedListComponent {
       }
     )
   }
+
+  addFave(breedToUpdate: IBreeds){
+    console.log("current User", this.currentUser, "incoming breed object", breedToUpdate)
+    let userId = this.currentUser.id;
+    console.log("created userId in favorite", userId, "currentuserId=", this.currentUser.id)
+    breedToUpdate.userId = userId
+    console.log(breedToUpdate.userId, this.currentUser)
+    this.api.addFave(breedToUpdate).subscribe({
+      next: (response: any) => {
+        console.log(response)
+      return response;
+      }
+      });
+
+    } 
+
 }
+
+

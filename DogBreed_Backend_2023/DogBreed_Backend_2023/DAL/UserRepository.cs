@@ -1,4 +1,5 @@
 using DogBreed_Backend_2023.Models;
+using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Linq;
@@ -8,87 +9,53 @@ namespace DogBreed_Backend_2023.DAL
   public class UserRepository
   {
 
-    private UserContext _dbContext = new UserContext();
+    private BreedContext _context = new BreedContext();
 
-    public List<User> GetAllUsers()
+    public Users LoginUser(Users newUser)
     {
-      return _dbContext.Users.ToList();
-    }
-    public User FindByUserName(string userName)
-    {
-      // AsNoTracking will not lock the ID allowing updating it after finding it
-      return _dbContext.Users.AsNoTracking().FirstOrDefault(x => x.UserName == userName);
-    }
 
-    //FAVORITES
-
-    public void AddFavoriteBreed(string userName, int breedId)
-    {
-      var user = _dbContext.Users.FirstOrDefault(x => x.UserName == userName);
-      if (user != null)
+      if (newUser.FirstName == "null")
       {
-        user.FavoriteBreeds.Concat(new[] { breedId });
-        _dbContext.SaveChanges();
+        Users getUser = _context.Users.FirstOrDefault(x => x.Email == newUser.Email & x.Password == newUser.Password);
+        return getUser;
       }
-    }
-    public List<int> GetAllUserFavoriteBreeds(string userName)
-    {
-      var usersBreeds = _dbContext.Users.FirstOrDefault(x => x.UserName == userName).FavoriteBreeds.ToList();
-      return usersBreeds;
-    }
-    public void DeleteFavoriteBreed(string userName, int breedId)
-    {
-      var user = _dbContext.Users.FirstOrDefault(x => x.UserName == userName);
-
-      if (user != null)
+      else
       {
-        user.FavoriteBreeds.Except(new[] { breedId });
-        _dbContext.SaveChanges();
+        _context.Users.Add(newUser);
+        _context.SaveChanges();
+        return newUser;
       }
+
     }
 
-    //ACTIVITIES
+    public List<Users> GetAllUsers()
+    {
+      return _context.Users.ToList();
+    }
 
-    public ActivityModel AddActivity(ActivityModel newActivity)
+    public Users getUserById(int id)
     {
-      _dbContext.Activities.Add(newActivity);
-      _dbContext.SaveChanges();
-      return GetLatestActivity();
+      return _context.Users.FirstOrDefault(x => x.Id == id);
     }
-    public List<ActivityModel> GetAllActivities()
-    {
-      return _dbContext.Activities.ToList();
-    }
-    public ActivityModel FindActivityById(int id)
-    {
-      // AsNoTracking will not lock the ID allowing updating it after finding it
-      return _dbContext.Activities.AsNoTracking().FirstOrDefault(x => x.Id == id);
-    }
-    private ActivityModel GetLatestActivity()
-    {
-      return _dbContext.Activities.OrderByDescending(x => x.Id).FirstOrDefault();
-    }
-    public bool UpdateActivity(ActivityModel activitiesToEdit)
-    {
-      if (FindActivityById(activitiesToEdit.Id) == null)
-      {
-        return false;
-      }
-      _dbContext.Activities.Update(activitiesToEdit);
-      _dbContext.SaveChanges();
-      return true;
-    }
-    public bool DeleteById(int id)
-    {
-      ActivityModel activities = FindActivityById(id);
-      if (activities == null)
-      {
-        return false;
-      }
-      _dbContext.Activities.Remove(activities);
-      _dbContext.SaveChanges();
-      return true;
 
+
+    public void UpdateUser(string firstName, string lastName, string email, string password, bool isAdmin, Users user)
+    {
+      Users userToUpdate = _context.Users.FirstOrDefault(x => x.Id == user.Id);
+
+      userToUpdate.FirstName = firstName;
+      userToUpdate.LastName = lastName;
+      userToUpdate.Email = email;
+      userToUpdate.Password = password;
+      userToUpdate.IsAdmin = isAdmin;
+      _context.Users.Update(userToUpdate);
+      _context.SaveChanges();
+    }
+
+    public void DeleteUser(Users userToUpdate)
+    {
+      _context.Users.Remove(userToUpdate);
+      _context.SaveChanges();
     }
   }
 }

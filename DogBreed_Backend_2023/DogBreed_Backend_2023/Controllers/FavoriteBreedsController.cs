@@ -14,37 +14,35 @@ namespace DogBreed_Backend_2023.Controllers
   }
 }
 
-[HttpPost("add")]
-public User AddFavoriteBreed(int userId, string password, int breedId)
-{
-  User newFavoriteBreed = new User
-  {
-    UserId = userId,
-    Password = password,
-    BreedId = breedId
-  };
-  return repo.AddFavoriteBreed(newFavoriteBreed);
-}
+//[HttpPost("add")]
+//public User AddFavoriteBreed(int userId, string password, int breedId)
+//{
+//  User newFavoriteBreed = new User
+//  {
+//    UserId = userId,
+//    Password = password,
+//    BreedId = breedId
+//  };
+//  return repo.AddFavoriteBreed(newFavoriteBreed);
+//}
 
 
-[HttpGet()]
-public List<DogBreed> GetAll(int userId)
-{
-  return repo.GetAllUserFavoriteBreeds(userId);
-}
+//[HttpGet()]
+//public List<DogBreed> GetAll(int userId)
+//{
+//  return repo.GetAllUserFavoriteBreeds(userId);
+//}
 
-[HttpDelete()]
-public IActionResult DeleteFavoriteBreed(int userId, int breedId)
-{
-  try
-  {
-    repo.DeleteFavoriteBreed(userId, breedId);
-    return Ok();
-  }
-  catch (Exception ex)
-  {
-    return NotFound();
-  }
-}
-  }
-}
+//[HttpDelete()]
+//public IActionResult DeleteFavoriteBreed(int userId, int breedId)
+//{
+//  try
+//  {
+//    repo.DeleteFavoriteBreed(userId, breedId);
+//    return Ok();
+//  }
+//  catch (Exception ex)
+//  {
+//    return NotFound();
+//  }
+//}

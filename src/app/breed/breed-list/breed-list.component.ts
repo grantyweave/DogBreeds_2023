@@ -5,6 +5,7 @@ import { DogRepositoryService } from 'src/app/dog-repository.service';
 import { IBreeds } from 'src/app/interface/breeds';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-breed-list',
   templateUrl: './breed-list.component.html',

@@ -11,12 +11,12 @@ namespace DogBreed_Backend_2023.DAL
 
     private BreedContext _context = new BreedContext();
 
-    public Users LoginUser(Users newUser)
+    public User LoginUser(User newUser)
     {
 
       if (newUser.FirstName == "null")
       {
-        Users getUser = _context.Users.FirstOrDefault(x => x.Email == newUser.Email & x.Password == newUser.Password);
+        User getUser = _context.Users.FirstOrDefault(x => x.Email == newUser.Email & x.Password == newUser.Password);
         return getUser;
       }
       else
@@ -28,20 +28,20 @@ namespace DogBreed_Backend_2023.DAL
 
     }
 
-    public List<Users> GetAllUsers()
+    public List<User> GetAllUsers()
     {
-      return _context.Users.ToList();
+      return _context.User.ToList();
     }
 
-    public Users getUserById(int id)
+    public User getUserById(int id)
     {
       return _context.Users.FirstOrDefault(x => x.Id == id);
     }
 
 
-    public void UpdateUser(string firstName, string lastName, string email, string password, bool isAdmin, Users user)
+    public void UpdateUser(string firstName, string lastName, string email, string password, bool isAdmin, User user)
     {
-      Users userToUpdate = _context.Users.FirstOrDefault(x => x.Id == user.Id);
+      User userToUpdate = _context.Users.FirstOrDefault(x => x.Id == user.Id);
 
       userToUpdate.FirstName = firstName;
       userToUpdate.LastName = lastName;
@@ -52,7 +52,7 @@ namespace DogBreed_Backend_2023.DAL
       _context.SaveChanges();
     }
 
-    public void DeleteUser(Users userToUpdate)
+    public void DeleteUser(User userToUpdate)
     {
       _context.Users.Remove(userToUpdate);
       _context.SaveChanges();

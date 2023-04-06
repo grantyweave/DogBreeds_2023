@@ -1,8 +1,9 @@
 
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ApiService } from 'src/app/api.service';
-import { IBreeds } from 'src/app/interfaces/breed';
+import { ApiService } from '../../api.service';
+import { IBreeds } from '../../interfaces/breed';
+
 
 @Component({
   selector: 'app-breed-list',
@@ -10,6 +11,7 @@ import { IBreeds } from 'src/app/interfaces/breed';
   styleUrls: ['./breed-list.component.css']
 })
 export class BreedListComponent {
+
 
   @Input() currentUser: any;
   
@@ -36,7 +38,6 @@ export class BreedListComponent {
       (response) => {
         this.dogBreeds = response;
         this.foundBreeds = true;
-        form.resetForm();
       }
     )
   }

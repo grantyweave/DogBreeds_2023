@@ -83,3 +83,26 @@ input[type=text], input[type=password] {
   #appName {
     font-size: 75%;
  }
+
+ /* Container holding the image and the text */
+.container {
+  position: relative;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+ /* Centered text over image*/
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-size: 120px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  opacity: 0.5;
+}
+
+.w3-quarter {
+  width: 25%;
+  height: 560px
+}

@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { IUser } from 'src/app/interfaces/user';
+
 
 @Component({
   selector: 'app-user',

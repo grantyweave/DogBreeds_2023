@@ -1,8 +1,9 @@
 
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ApiService } from 'src/app/api.service';
-import { IBreeds } from 'src/app/interfaces/breed';
+import { ApiService } from '../../api.service';
+import { IBreeds } from '../../interfaces/breed';
+
 
 @Component({
   selector: 'app-breed-list',
@@ -39,7 +40,6 @@ export class BreedListComponent {
         this.foundBreeds = true;
       }
     )
-    form.resetForm();
   }
 
   addFave(breedToUpdate: IBreeds){

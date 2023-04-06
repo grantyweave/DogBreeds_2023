@@ -27,20 +27,12 @@
   
  </div>
 
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
-    <a href="#activities" class="w3-bar-item w3-button">Activities</a>
-    <a *ngIf="userIsNotLoggedOn" (click)="showLoginModal()" else (click)="showUserpageModal()" class="w3-bar-item w3-button">My Account</a>
-    <a href="#team" class="w3-bar-item w3-button">Team</a>
-    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-    <a *ngIf="userIsNotLoggedOn" (click)="showCreateModal()" class="w3-bar-item w3-button">Create User</a>
-  </div>
-
 <!-- Image Header -->
 <!--old image link "https://i0.wp.com/brdtc.org/wp-content/uploads/2016/05/dog-banner-image.png?fit=660%2C174&ssl=1"-->
 <div class="w3-display-container w3-animate-opacity">
     <img src="https://quartzmountaingsmd.files.wordpress.com/2015/01/puppy-pile.jpg" alt="puppy pile" style="width:100%;min-height:350px;max-height:600px;">
-  <div class="w3-container w3-display-bottomleft w3-margin-bottom"> 
+    <h1 class="centered">DOGGONE IT</h1>
+    <div class="w3-container w3-display-bottomleft w3-margin-bottom"> 
     <a onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-xlarge w3-theme w3-hover-teal">Explore all breeds</a> 
   </div>
 </div>
@@ -186,8 +178,53 @@
   <p>If you think your pet would be a good candidate, visit the Alliance of Therapy Dogs website to get started.</p>
   <a href="https://www.therapydogs.com/">Alliance of Therapy Dogs</a>
   </div>
-  </div>
 </div>
+</div>
+<br>
+<div class="w3-quarter">
+  <div class="w3-card w3-white">
+    <img src="https://www.thesprucepets.com/thmb/vyCNFRTRbPCgoiST3xWwTEJoE1A=/1280x0/filters:no_upscale():strip_icc()/shelter-training-115895910-resized-56a26a8d3df78cf772755f29.jpg" alt="Snow" style="width:100%">
+    <div class="w3-container">
+    <h3>Adopt a Dog</h3>
+    <p>If you have room in your home and heart for a new family member, click on the button below to browse for adoptable dogs in your area!</p>
+    <button onclick="window.location.href='https://www.google.com/search?q=adoptable+dogs+near+me&sxsrf=APwXEdeifoJ98JOMRSP6IXP8iyLZeZzlEg%3A1680737907058&ei=cwYuZJj_AsioptQPt5Sd-A8&ved=0ahUKEwjYhKTP9JP-AhVIlIkEHTdKB_8Q4dUDCBA&uact=5&oq=adoptable+dogs+near+me&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIICAAQigUQkgMyBQgAEIAEMgUIABCABDIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjoTCC4QigUQsQMQgwEQxwEQ0QMQQzoHCAAQigUQQzoLCAAQgAQQsQMQgwE6CwguEIoFELEDEIMBOhEILhCABBCxAxCDARDHARDRAzoRCC4QigUQsQMQgwEQxwEQ0QM6DQguEIoFEMcBENEDEEM6EwguEIoFELEDEMkDEMcBENEDEEM6CAgAEIAEEJIDOgoIABCKBRCxAxBDOg0IABCKBRCxAxCDARBDOhEILhCKBRCxAxDHARDRAxCRAjoKCAAQgAQQFBCHAjoNCC4QgAQQxwEQrwEQCjoICAAQgAQQsQM6BwgAEIAEEAo6CwgAEIoFELEDEJECOggIABCKBRCRAjoLCC4QgAQQxwEQrwE6CAgAEIoFEIYDSgQIQRgAUABY9RFg3hJoAHABeAKAAYgCiAGJG5IBBjIuMTQuNpgBAKABAcABAQ&sclient=gws-wiz-serp';">
+      Show me all the dogs!
+    </button>
+    </div>
+    </div>
+  </div>
+<div class="w3-quarter">
+  <div class="w3-card w3-white">
+    <img src="https://www.dog-ter.com/images/Basic-and-Advanced-Obedience.jpg" alt="Snow" style="width:100%">
+    <div class="w3-container">
+    <h3>Dog Obedience</h3>
+    <p>It is important that your new furry friend is well-behaved and listens to your commands. Click below to see options for dog obediance classes in your area.</p>
+    <button onclick="window.location.href='https://www.google.com/search?q=dog+obedience+classes+near+me&sxsrf=APwXEdejFDrwj3nHXS0WljolEyQtccGa5Q%3A1680737919388&ei=fwYuZKmmF52optQP9fS54Ak&oq=dog+obedie&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAxgAMgcIABCKBRBDMgUIABCABDIHCAAQigUQQzIHCAAQigUQQzIFCAAQgAQyBQgAEIAEMgUIABCABDIHCAAQigUQQzIFCAAQgAQyBQgAEIAEOg0ILhDHARCvARAnEOoEOgQIIxAnOgcILhCKBRBDOhYILhDHARCvARDqBBDcBBDeBBDgBBgBOg0IABCKBRCxAxDJAxBDOggIABCKBRCSAzoKCAAQigUQsQMQQzoKCAAQigUQyQMQQzoICAAQigUQkQI6CwguEIAEELEDEIMBOgsILhCABBDHARCvAToICAAQgAQQsQM6BwgAEA0QgAQ6CAgAEB4QDRAPOggIABAWEB4QCjoICAAQBRAeEA06CggAEAUQHhANEApKBAhBGABQAFjJHGChLmgBcAF4AIABgQGIAYEJkgEDNC43mAEAoAEBwAEB2gEGCAEQARgU&sclient=gws-wiz-serp';">
+      SIT Fido!
+    </button>
+    </div>
+    </div>
+  </div>
+  <div class="w3-quarter">
+  <div class="w3-card w3-white">
+    <img src="https://www.akc.org/wp-content/uploads/2019/01/AKC-Scent-Work-Eukanuba-AR3I1122-800x600.jpg" alt="Lights" style="width:100%">
+    <div class="w3-container">
+    <h3>Scent Work</h3>
+    <p>Scent work is a sport that allows your dog to harness their innate sense of smell to detect odors, using similar techniques to dogs that work as narcotics or explosive detectors.</p>
+    <p>Visit the AKC official website to learn more!</p>
+    <a href="https://www.akc.org/sports/akc-scent-work/">American Kennel Club - Scent Work</a>
+    </div>
+    </div>
+  </div>
+  <div class="w3-quarter">
+  <div class="w3-card w3-white">
+    <img src="https://media.istockphoto.com/id/1193127167/photo/cropped-view-of-blind-man-with-stick-and-guide-dog-walking-on-crosswalk.jpg?s=612x612&w=0&k=20&c=1CaWFrZc896xfMIL5BlWxcQDpHFFJWuhAKf3wvZZj2g="alt="Lights" style="width:100%">
+    <div class="w3-container">
+    <h3>Leader/Guide Dogs</h3>
+    <p>Guide dogs are trained from puppies to lead a visually-impaired person safely around obstacles, so that their human companion may live a more independent lifestyle.</p>
+    <a href="https://www.leaderdog.org/">Read more about leader dogs.</a>
+    </div>
+    </div>
 </div>
 
 
@@ -197,43 +234,28 @@
   <p>Meet the team:</p>
 <div class="w3-row"><br>
 <div class="w3-quarter">
-  <img src="https://www.purina.co.uk/sites/default/files/2022-07/German-Shepherd-Dog.jpg?itok=eQlRJxqe" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+  <img src="https://www.thesprucepets.com/thmb/R-_q68H0czWiISKCfPgQHi1XXig=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/beagle-RolfKopfle-Photolibrary-Getty-135631212-56a26b1d3df78cf772756667.jpg" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
   <h3>Grant Weaver</h3>
-  <p>Web Designer</p>
+  <a href="https://www.linkedin.com/in/grant-weaver-838445240/">Linkedin</a>
 </div>
 <div class="w3-quarter">
   <img src="https://ggsc.s3.amazonaws.com/images/uploads/The_Science-Backed_Benefits_of_Being_a_Dog_Owner.jpg" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
   <h3>John Rizzo</h3>
-   <p>Web Designer</p>
+  <a href="https://www.linkedin.com/in/jrizzo88/">Linkedin</a>
 </div>
 <div class="w3-quarter">
   <img src="https://nationaltoday.com/wp-content/uploads/2022/08/18-National-Welsh-Corgi-Day-640x514.jpg" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
   <h3>Kara Gheldof</h3>
-  <p>Web Designer</p>
+  <a href="https://www.linkedin.com/in/kara-gheldof-1ba08625a/">Linkedin</a>
 </div>
 <div class="w3-quarter">
   <img src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
   <h3>Nicole Brennan</h3>
-  <p>Web Designer</p>
+  <a href="https://www.linkedin.com/in/nicoleabrennan/">Linkedin</a>
 </div>
 </div>
 </div>
 
-<!-- Contact Container -->
-<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
-  <div class="w3-row">
-    <div class="w3-col m5">
-    <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact Me</span></div>
-      <h3></h3>
-      <p>Swing by for a cup of coffee, or whatever.</p>
-      <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>  Chicago, US</p>
-      <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>  +00 1515151515</p>
-      <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>  test@test.com</p>
-    </div>
-  </div>
-</div>
-
-<!-- Image of location/map -->
 <!-- <img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%;"> -->
 
 <!-- Footer -->
@@ -252,28 +274,3 @@
     <i class="fa fa-chevron-circle-up"></i></span></a>
   </div>
 </footer>
-
-<script>
-// Script for side navigation
-function w3_open() {
-  var x = document.getElementById("mySidebar");
-  x.style.width = "300px";
-  x.style.paddingTop = "10%";
-  x.style.display = "block";
-}
-
-// Close side navigation
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-
-// Used to toggle the menu on smaller screens when clicking on the menu button
-function openNav() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>

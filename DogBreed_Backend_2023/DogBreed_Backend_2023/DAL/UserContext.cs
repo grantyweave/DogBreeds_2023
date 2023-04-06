@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using DogBreed_Backend_2023.Models;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Microsoft.AspNetCore.Components.Routing;
 
 namespace DogBreed_Backend_2023.DAL
 {
@@ -21,8 +22,6 @@ namespace DogBreed_Backend_2023.DAL
 
     // Create the table based off the model
     public DbSet<User> Users { get; set; }
-    public DbSet<ActivityModel> Activities { get; set; }
-
 
 
     private static IConfigurationRoot _configuration;
